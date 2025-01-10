@@ -2,7 +2,7 @@
   "name": "@codeflare/common",
   "version": "1.0.0",
   "description": "common module for codeflare web app",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
   },
