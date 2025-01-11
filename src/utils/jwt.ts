@@ -8,10 +8,20 @@ export interface JwtPayloadType {
     role: string;
 }
 
-// Check Token validity
+// Generate a JWT token
+const GenerateJwtToken = (
+    payload: JwtPayloadType,
+    secret: string,
+    expiresIn: string
+) => {
+    return jwt.sign(payload, secret, { expiresIn });
+};
+
+// Check if a token is expired
 const isTokenExpired = (token: string) => {
     try {
         const decoded = jwt.decode(token) as JwtPayload | null;
+
         if (!decoded || !decoded.exp) {
             throw new ForbiddenError();
         }
@@ -23,19 +33,25 @@ const isTokenExpired = (token: string) => {
     }
 };
 
-// Verify Access Token
-const verifyAccessToken = (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const accessToken = req.headers["authorization"]?.split(" ")[1];
-        if (!accessToken) throw new ForbiddenError();
+// Middleware to verify access token
+const verifyAccessToken = (secret: string) => {
+    return (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const accessToken = req.headers["authorization"]?.split(" ")[1];
 
-        if (isTokenExpired(accessToken)) {
-            throw new UnauthorizedError("Token Expired");
+            if (!accessToken) throw new ForbiddenError();
+
+            if (isTokenExpired(accessToken)) {
+                throw new UnauthorizedError("Token Expired");
+            }
+
+            const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
+            console.log(payload);
+
+            req.headers["x-user"] = JSON.stringify(payload);
+            next();
+        } catch (err: any) {
+            throw new Error("Internal Server Error");
         }
-
-        const payload = jwt.verify(
-            accessToken,
-            process.env.JWT_ACCESSTOKEN_SECERET as string
-        ) as JwtPayloadType;
-    } catch (err) { }
+    };
 };
