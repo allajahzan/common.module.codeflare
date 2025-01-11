@@ -1,4 +1,6 @@
-class ConflictError extends CustomError {
+import { CustomError } from "./error.custom";
+
+export class ConflictError extends CustomError {
     statusCode = 409;
 
     constructor(message: string) {

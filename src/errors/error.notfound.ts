@@ -1,4 +1,6 @@
-class NotFoundError extends CustomError {
+import { CustomError } from "./error.custom";
+
+export class NotFoundError extends CustomError {
     statusCode = 404;
 
     constructor(message: string) {
