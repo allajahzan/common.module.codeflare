@@ -7,12 +7,14 @@ export const ErrorHandler = (
     next: NextFunction
 ) => {
     try {
+        console.log(error);
         if (error instanceof CustomError) {
-            console.log(error.message);
             res.status(error.statusCode).json(error.serializeError());
+        }else{
+            res.status(500).json({message:error})
         }
-    } catch (err) {
+    } catch (err:any) {
         console.log(err);
-        res.status(501).json({ message: "Internal Server Error" });
+        res.status(501).json({ message: err.message });
     }
 };

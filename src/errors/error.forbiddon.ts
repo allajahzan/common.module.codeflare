@@ -4,7 +4,7 @@ export class ForbiddenError extends CustomError {
     statusCode = 403;
 
     constructor() {
-        super('Forbidden');
+        super("Forbidden");
     }
 
     serializeError = () => [{ message: this.message }];

@@ -8,4 +8,4 @@ export * from "./errors/error.unauthorized";
 export * from "./middleware/error.handler";
 
 // Export JWT configuration
-export * from "./config/jwt";
+export * from "./utils/jwt";
