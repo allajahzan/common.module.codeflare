@@ -55,3 +55,5 @@ const verifyAccessToken = (secret: string) => {
         }
     };
 };
+
+export { GenerateJwtToken, verifyAccessToken };
