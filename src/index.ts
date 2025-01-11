@@ -1,1 +1,1 @@
-export * from './sample/hello'
+export * from './config/jwt'
