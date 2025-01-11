@@ -44,10 +44,12 @@ export const SendResponse = (
     res: Response,
     status: number,
     message: string,
-    data: any
+    data?: any
 ) => {
     try {
-        return res.status(status).json({ message, data });
+        return res
+            .status(status)
+            .json({ message, ...(data !== undefined && data !== null && { data }) });
     } catch (err: any) {
         throw new Error(err);
     }
