@@ -13,13 +13,16 @@ export class MongodbConnection {
         this.url = url;
     }
 
-    /**retry connection to mongodb */
+    /**
+     * Retries connecting to MongoDB before giving up.
+     * @throws {Error} If all attempts to connect failed.
+     */
     async retryConnection() {
         while (this.attempt <= this.retries) {
             try {
                 await mongoose.connect(this.url);
                 console.log("Connected to MongoDB");
-                break;
+                return;
             } catch (err: any) {
                 console.log(
                     `Connection attempt ${this.attempt} failed : ${err.message}. Retrying in ${this.delay}ms...`
