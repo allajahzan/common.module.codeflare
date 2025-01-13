@@ -13,20 +13,12 @@ export class MongodbConnection {
         this.url = url;
     }
 
-    /**connect to mongodb */
-    async connect() {
-        await mongoose.connect(this.url, {
-            connectTimeoutMS: 1000,
-            serverSelectionTimeoutMS: 5000,
-        });
-        console.log("Connected to MongoDB");
-    }
-
-    /**retry connection */
+    /**retry connection to mongodb */
     async retryConnection() {
         while (this.attempt <= this.retries) {
             try {
-                await this.connect();
+                await mongoose.connect(this.url);
+                console.log("Connected to MongoDB");
                 break;
             } catch (err: any) {
                 console.log(
