@@ -13,3 +13,6 @@ export * from "./middleware/error.handler";
 
 // Export Utilities
 export * from "./utils/jwt";
+
+// Export mongodb connection class
+export * from './config/mongodb.connection'
