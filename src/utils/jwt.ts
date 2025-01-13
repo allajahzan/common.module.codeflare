@@ -12,11 +12,12 @@ export interface JwtPayloadType {
 }
 
 /**
- * Utility function to generate a JWT token.
- * @param payload - The token payload.
- * @param secret - The secret key for signing the token.
- * @param expiresIn - The duration until the token expires.
- * @returns The signed JWT token.
+ * Generates a JSON Web Token (JWT).
+ *
+ * @param {JwtPayloadType} payload - The payload to be signed and stored in the JWT.
+ * @param {string} secret - The secret key to sign the JWT with.
+ * @param {string} expiresIn - The length of time the JWT expiry datetime.
+ * @returns {string} The generated JWT.
  */
 export const generateJwtToken = (
     payload: JwtPayloadType,
@@ -27,10 +28,12 @@ export const generateJwtToken = (
 };
 
 /**
- * Utility function to check if a token is expired.
- * @param token - The JWT token to check.
- * @returns `true` if the token is expired, otherwise `false`.
- * @throws `ForbiddenError` if the token does not have an expiration.
+ * Checks if a given JSON Web Token (JWT) has expired.
+ *
+ * @param {string} token - The JWT to check for expiration.
+ * @returns {boolean} - Returns `true` if the token has expired, otherwise `false`.
+ * @throws {ForbiddenError} - Throws if the token is invalid or does not contain an expiration time.
+ * @throws {Error} - Throws an "Internal Server Error" for any other decoding errors.
  */
 export const isTokenExpired = (token: string): boolean => {
     try {
@@ -49,12 +52,15 @@ export const isTokenExpired = (token: string): boolean => {
 };
 
 /**
- * Middleware to verify an access token.
- * @param secret - The secret key used to verify the token.
- * @returns An Express middleware function.
- * @throws `ForbiddenError` if the token is not provided.
- * @throws `UnauthorizedError` if the token is expired or invalid.
+ * Middleware to verify the JSON Web Token (JWT)
+ *
+ * @param {string} secret - The secret key to verify the JWT.
+ * @returns {function} Middleware function for Express.
+ * @throws {ForbiddenError} - Throws if the access token is missing.
+ * @throws {UnauthorizedError} - Throws if the token is expired.
+ * @throws {Error} - Throws if token verification fails for any other reason.
  */
+
 export const verifyAccessToken = (secret: string) => {
     return (req: Request, res: Response, next: NextFunction): void => {
         try {

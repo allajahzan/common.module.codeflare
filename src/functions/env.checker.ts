@@ -1,8 +1,8 @@
 /**
- * Function to validate the existence of environment variables.
- * @param value - The value of the environment variable to check.
- * @param type - The name of the environment variable.
- * @throws Error if the value is undefined or empty.
+ * Checks if a given environment variable exists and is not empty.
+ * @param value - The environment variable value to check.
+ * @param type - The type of environment variable (e.g. "JWT_SECRET", "DB_URI", etc.).
+ * @throws {Error} If the variable is not defined or empty.
  */
 export const envChecker = (value: string | undefined, type: string): void => {
     if (!value || value.trim() === "") {
