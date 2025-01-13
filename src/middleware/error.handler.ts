@@ -2,11 +2,12 @@ import { Request, Response, NextFunction } from "express";
 import { CustomError } from "../errors/error.custom";
 
 /**
- * Global error-handling middleware for Express.
- * @param error - The error object passed to the middleware.
- * @param req - The Express Request object.
- * @param res - The Express Response object.
- * @param next - The Express NextFunction.
+ * Express middleware for centralized error handling.
+ *
+ * @param error - The error that occurred during request processing.
+ * @param req - Express request object.
+ * @param res - Express response object.
+ * @param next - Express next middleware function.
  */
 export const errorHandler = (
     error: Error,
