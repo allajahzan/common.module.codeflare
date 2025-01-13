@@ -6,6 +6,7 @@ export * from "./errors/error.unauthorized";
 
 // Export functions
 export * from "./functions/response.send";
+export * from './functions/env.checker'
 
 // Export middleware
 export * from "./middleware/error.handler";
