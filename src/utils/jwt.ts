@@ -60,7 +60,6 @@ export const isTokenExpired = (token: string): boolean => {
  * @throws {UnauthorizedError} - Throws if the token is expired.
  * @throws {Error} - Throws if token verification fails for any other reason.
  */
-
 export const verifyAccessToken = (secret: string) => {
     return (req: Request, res: Response, next: NextFunction): void => {
         try {

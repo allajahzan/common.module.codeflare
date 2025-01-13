@@ -31,15 +31,16 @@ export enum ResponseMessage {
     BAD_GATEWAY = "Bad gateway",
 }
 
-/**
- * Function to send JSON responses.
- * @param res - Express Response object
- * @param status - HTTP status code
- * @param message - Response message
- * @param data - Optional response data
- * @returns The response object.
- */
 
+/**
+ * Sends an HTTP response with a given status, message, and optional data.
+ *
+ * @param {Response} res - The Express response object to send the response.
+ * @param {number} status - The HTTP status code for the response.
+ * @param {string} message - A message describing the response.
+ * @param {any} data - Optional data to include in the response body.
+ * @throws {Error} Will throw an error if there is an issue sending the response.
+ */
 export const SendResponse = (
     res: Response,
     status: number,
