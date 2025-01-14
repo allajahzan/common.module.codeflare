@@ -3,9 +3,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 import { ForbiddenError } from "../errors/error.forbidden";
 import { UnauthorizedError } from "../errors/error.unauthorized";
 
-/**
- * Interface for the JWT payload.
- */
+/** Interface for the JWT payload. */
 export interface JwtPayloadType {
     userId: string;
     role: string;
@@ -13,7 +11,6 @@ export interface JwtPayloadType {
 
 /**
  * Generates a JSON Web Token (JWT).
- *
  * @param {JwtPayloadType} payload - The payload to be signed and stored in the JWT.
  * @param {string} secret - The secret key to sign the JWT with.
  * @param {string} expiresIn - The length of time the JWT expiry datetime.
@@ -24,12 +21,15 @@ export const generateJwtToken = (
     secret: string,
     expiresIn: string
 ): string => {
-    return jwt.sign(payload, secret, { expiresIn });
+    try {
+        return jwt.sign(payload, secret, { expiresIn });
+    } catch (err: any) {
+        throw new Error(err.message);
+    }
 };
 
 /**
  * Checks if a given JSON Web Token (JWT) has expired.
- *
  * @param {string} token - The JWT to check for expiration.
  * @returns {boolean} - Returns `true` if the token has expired, otherwise `false`.
  * @throws {ForbiddenError} - Throws if the token is invalid or does not contain an expiration time.
@@ -45,15 +45,13 @@ export const isTokenExpired = (token: string): boolean => {
 
         const currentTime = Math.floor(Date.now() / 1000);
         return decoded.exp < currentTime;
-    } catch (err) {
-        console.error("Error decoding token:", err);
-        throw new Error("Internal Server Error");
+    } catch (err: any) {
+        throw err;
     }
 };
 
 /**
  * Middleware to verify the JSON Web Token (JWT)
- *
  * @param {string} secret - The secret key to verify the JWT.
  * @returns {function} Middleware function for Express.
  * @throws {ForbiddenError} - Throws if the access token is missing.
@@ -75,17 +73,14 @@ export const verifyAccessToken = (secret: string) => {
             }
 
             const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
+            if (!payload) throw new ForbiddenError();
+
             console.log("Token payload:", payload);
 
-            // Attach the decoded payload to the request headers
             req.headers["x-user"] = JSON.stringify(payload);
             next();
         } catch (err: any) {
-            console.error("Token verification failed:", err);
-            res.status(401).json({
-                message: "Unauthorized access",
-                error: err.message || "Invalid token.",
-            });
+            throw err;
         }
     };
 };

@@ -1,8 +1,6 @@
 import { Response } from "express";
 
-/**
- * Enumeration for HTTP status codes.
- */
+/** Enumeration for HTTP status codes */
 export enum HTTPStatusCodes {
     OK = 200,
     CREATED = 201,
@@ -16,9 +14,7 @@ export enum HTTPStatusCodes {
     BAD_GATEWAY = 502,
 }
 
-/**
- * Enumeration for common response messages.
- */
+/** Enumeration for common response messages. */
 export enum ResponseMessage {
     SUCCESS = "Operation successful",
     CREATED = "Resource successfully created",
@@ -31,10 +27,8 @@ export enum ResponseMessage {
     BAD_GATEWAY = "Bad gateway",
 }
 
-
 /**
  * Sends an HTTP response with a given status, message, and optional data.
- *
  * @param {Response} res - The Express response object to send the response.
  * @param {number} status - The HTTP status code for the response.
  * @param {string} message - A message describing the response.

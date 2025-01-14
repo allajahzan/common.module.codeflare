@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 export class MongodbConnection {
     private attempt: number = 1;
-    private retries: number = 5;
-    private delay: number = 5000;
-    private url: string;
+    private readonly retries: number = 5;
+    private readonly delay: number = 5000;
+    private readonly url: string;
 
     /**
      * Creates an instance of MongodbConnection.
