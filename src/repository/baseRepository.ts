@@ -1,4 +1,4 @@
-import { Document, FilterQuery, Model, UpdateQuery } from "mongoose";
+import { Document, FilterQuery, Model, QueryOptions, UpdateQuery } from "mongoose";
 import { IBaseRepository } from "./IBaseRepository";
 
 /** Implementaion of Base Repository */
@@ -60,9 +60,9 @@ export class BaseRepository<T extends Document> implements IBaseRepository<T> {
      * @param data - The data to update the document with.
      * @returns A promise that resolves to the updated document if successful, otherwise null.
      */
-    async update(query: FilterQuery<T>, data: UpdateQuery<T>): Promise<T | null> {
+    async update(query: FilterQuery<T>, data: UpdateQuery<T>, option?: QueryOptions): Promise<T | null> {
         try {
-            const updatedDocument = await this.model.findOneAndUpdate(query, data);
+            const updatedDocument = await this.model.findOneAndUpdate(query, data, option? option : {});
             return updatedDocument;
         } catch (err: any) {
             return null;
