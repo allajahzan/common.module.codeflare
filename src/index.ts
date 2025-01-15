@@ -16,3 +16,7 @@ export * from "./utils/jwt";
 
 // Export mongodb connection class
 export * from './config/mongodb.connection'
+
+// Export repositories
+export * from './repository/IBaseRepository'
+export * from './repository/baseRepository'
