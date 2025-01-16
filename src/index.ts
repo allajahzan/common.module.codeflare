@@ -14,6 +14,9 @@ export * from "./middleware/error.handler";
 // Export Utilities
 export * from "./utils/jwt";
 
+// Export Nodemailer
+export * from './utils/nodeMailer'
+
 // Export mongodb connection class
 export * from './config/mongodb.connection'
 
