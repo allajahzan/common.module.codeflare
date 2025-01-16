@@ -8,11 +8,11 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-export const sendEmail = (email: string, html:string, callback: any) => {
+export const sendEmail = (email: string, subject: string, html:string, callback: any) => {
     const mailOptions = {
         from: "ahsanallajpk22@gmail.com",
         to: email,
-        subject: "Your accound has been deleted",
+        subject,
         html
     };
 
