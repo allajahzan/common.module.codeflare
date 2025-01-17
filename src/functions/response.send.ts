@@ -40,7 +40,7 @@ export const SendResponse = (
     status: number,
     message: string,
     data?: any
-) => {
+) : any => {
     try {
         return res
             .status(status)

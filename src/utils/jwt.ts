@@ -24,7 +24,7 @@ export const generateJwtToken = (
     try {
         return jwt.sign(payload, secret, { expiresIn });
     } catch (err: any) {
-        throw new Error(err.message);
+        throw err;
     }
 };
 
