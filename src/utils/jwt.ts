@@ -75,13 +75,13 @@ export const verifyAccessToken = (secret: string) => {
                 throw new UnauthorizedError("Token has expired.");
             }
 
-            // const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
-            // if (!payload) throw new ForbiddenError();
+            const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
+            if (!payload) throw new ForbiddenError();
 
-            // console.log("Token payload:", payload);
+            console.log("Token payload:", payload);
 
-            // req.headers["x-user"] = JSON.stringify(payload);
-            // next();
+            req.headers["x-user"] = JSON.stringify(payload);
+            next();
         } catch (err: any) {
             throw err;
         }
