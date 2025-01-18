@@ -5,7 +5,7 @@ import { UnauthorizedError } from "../errors/error.unauthorized";
 
 /** Interface for the JWT payload. */
 export interface JwtPayloadType {
-    userId: string;
+    _id: string;
     role: string;
 }
 
@@ -61,14 +61,8 @@ export const isTokenExpired = (token: string): boolean => {
 export const verifyAccessToken = (secret: string) => {
     return (req: Request, res: Response, next: NextFunction): void => {
         try {
-
-            console.log(secret)
-
             const authorizationHeader = req.headers["authorization"];
             const accessToken = authorizationHeader?.split(" ")[1];
-
-            console.log(accessToken);
-            
 
             if (!accessToken) {
                 throw new ForbiddenError();
@@ -84,6 +78,7 @@ export const verifyAccessToken = (secret: string) => {
             console.log("Token payload:", payload);
 
             req.headers["x-user"] = JSON.stringify(payload);
+            
             next();
         } catch (err: any) {
             throw err;
