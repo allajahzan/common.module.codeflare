@@ -61,24 +61,27 @@ export const isTokenExpired = (token: string): boolean => {
 export const verifyAccessToken = (secret: string) => {
     return (req: Request, res: Response, next: NextFunction): void => {
         try {
-            const authorizationHeader = req.headers["authorization"];
-            const accessToken = authorizationHeader?.split(" ")[1];
 
-            if (!accessToken) {
-                throw new ForbiddenError();
-            }
+            console.log(secret)
 
-            if (isTokenExpired(accessToken)) {
-                throw new UnauthorizedError("Token has expired.");
-            }
+            // const authorizationHeader = req.headers["authorization"];
+            // const accessToken = authorizationHeader?.split(" ")[1];
 
-            const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
-            if (!payload) throw new ForbiddenError();
+            // if (!accessToken) {
+            //     throw new ForbiddenError();
+            // }
 
-            console.log("Token payload:", payload);
+            // if (isTokenExpired(accessToken)) {
+            //     throw new UnauthorizedError("Token has expired.");
+            // }
 
-            req.headers["x-user"] = JSON.stringify(payload);
-            next();
+            // const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
+            // if (!payload) throw new ForbiddenError();
+
+            // console.log("Token payload:", payload);
+
+            // req.headers["x-user"] = JSON.stringify(payload);
+            // next();
         } catch (err: any) {
             throw err;
         }
