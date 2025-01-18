@@ -19,10 +19,10 @@ export interface JwtPayloadType {
 export const generateJwtToken = (
     payload: JwtPayloadType,
     secret: string,
-    expiresIn: string
+    duration: string
 ): string => {
     try {
-        return jwt.sign(payload, secret, { expiresIn });
+        return jwt.sign(payload, secret, { expiresIn: duration });
     } catch (err: any) {
         throw err;
     }
@@ -69,7 +69,7 @@ export const verifyAccessToken = (secret: string) => {
             if (isTokenExpired(accessToken)) throw new ForbiddenError();
 
             const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
-            
+
             if (!payload) throw new ForbiddenError();
 
             console.log("Token payload:", payload);
