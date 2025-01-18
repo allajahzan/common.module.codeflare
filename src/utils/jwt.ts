@@ -67,6 +67,9 @@ export const verifyAccessToken = (secret: string) => {
             const authorizationHeader = req.headers["authorization"];
             const accessToken = authorizationHeader?.split(" ")[1];
 
+            console.log(accessToken);
+            
+
             if (!accessToken) {
                 throw new ForbiddenError();
             }
