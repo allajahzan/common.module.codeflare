@@ -64,16 +64,16 @@ export const verifyAccessToken = (secret: string) => {
 
             console.log(secret)
 
-            // const authorizationHeader = req.headers["authorization"];
-            // const accessToken = authorizationHeader?.split(" ")[1];
+            const authorizationHeader = req.headers["authorization"];
+            const accessToken = authorizationHeader?.split(" ")[1];
 
-            // if (!accessToken) {
-            //     throw new ForbiddenError();
-            // }
+            if (!accessToken) {
+                throw new ForbiddenError();
+            }
 
-            // if (isTokenExpired(accessToken)) {
-            //     throw new UnauthorizedError("Token has expired.");
-            // }
+            if (isTokenExpired(accessToken)) {
+                throw new UnauthorizedError("Token has expired.");
+            }
 
             // const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
             // if (!payload) throw new ForbiddenError();
