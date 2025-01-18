@@ -74,7 +74,7 @@ export const verifyAccessToken = (secret: string) => {
 
             console.log("Token payload:", payload);
 
-            req.headers["x-user"] = JSON.stringify(payload);
+            req.headers["x-user-payload"] = JSON.stringify(payload);
 
             next();
         } catch (err: any) {
