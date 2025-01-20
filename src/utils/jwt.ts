@@ -29,6 +29,26 @@ export const generateJwtToken = (
 };
 
 /**
+ * Verifies the given JSON Web Token (JWT) and returns the decoded payload.
+ * @param {string} token - The JWT to verify.
+ * @param {string} secret - The secret key to verify the JWT with.
+ * @returns {JwtPayloadType} The decoded payload if the JWT is valid.
+ * @throws {ForbiddenError} If the token is invalid or does not contain an expiration time.
+ * @throws {Error} Throws an "Internal Server Error" for any other decoding errors.
+ */
+export const verifyJwtToken = (
+    token: string,
+    secret: string
+): JwtPayloadType => {
+    try {
+        const payload = jwt.verify(token, secret) as JwtPayloadType;
+        return payload;
+    } catch (err: any) {
+        throw err;
+    }
+};
+
+/**
  * Checks if a given JSON Web Token (JWT) has expired.
  * @param {string} token - The JWT to check for expiration.
  * @returns {boolean} - Returns `true` if the token has expired, otherwise `false`.
@@ -68,7 +88,7 @@ export const verifyAccessToken = (secret: string) => {
 
             if (isTokenExpired(accessToken)) throw new ForbiddenError();
 
-            const payload = jwt.verify(accessToken, secret) as JwtPayloadType;
+            const payload = verifyJwtToken(accessToken, secret);
 
             if (!payload) throw new ForbiddenError();
 
