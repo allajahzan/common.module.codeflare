@@ -11,5 +11,7 @@ export class ConflictError extends CustomError {
         super(message);
     }
 
-    serializeError = () => [{ message: this.message }];
+    serializeError = () => {
+        return { message: this.message };
+    };
 }

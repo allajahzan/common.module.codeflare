@@ -6,11 +6,12 @@ export class ForbiddenError extends CustomError {
     /**
      * Constructs a new ForbiddenError instance.
      * @param message - The error message to be associated with this error.
-     *                  Defaults to "Forbidden".
      */
     constructor() {
         super("Forbidden");
     }
 
-    serializeError = () => [{ message: this.message }];
+    serializeError = () => {
+        return { message: this.message };
+    };
 }
