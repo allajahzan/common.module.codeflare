@@ -4,6 +4,7 @@ export * from "./errors/error.forbidden";
 export * from "./errors/error.notfound";
 export * from "./errors/error.unauthorized";
 export * from './errors/error.expired'
+export * from './errors/error.badrequest'
 
 // Export functions
 export * from "./functions/response.send";
