@@ -55,7 +55,7 @@ export const verifyJwtToken = (
  * @throws {ForbiddenError} - Throws if the token is invalid or does not contain an expiration time.
  * @throws {Error} - Throws an "Internal Server Error" for any other decoding errors.
  */
-export const isTokenExpired = (token: string): boolean => {
+export const isTokenExpired = (token: string): boolean | any => {
     try {
         const decoded = jwt.decode(token) as JwtPayload | null;
 
@@ -66,7 +66,7 @@ export const isTokenExpired = (token: string): boolean => {
         const currentTime = Math.floor(Date.now() / 1000);
         return decoded.exp < currentTime;
     } catch (err: any) {
-        throw err;
+        console.log(err)
     }
 };
 
@@ -98,7 +98,7 @@ export const verifyAccessToken = (secret: string) => {
 
             next();
         } catch (err: any) {
-            throw err;
+            console.log(err)
         }
     };
 };
