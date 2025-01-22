@@ -66,7 +66,7 @@ export const isTokenExpired = (token: string): boolean | any => {
         const currentTime = Math.floor(Date.now() / 1000);
         return decoded.exp < currentTime;
     } catch (err: any) {
-        console.log(err)
+        console.log(err + "expoiry")
     }
 };
 
@@ -98,7 +98,7 @@ export const verifyAccessToken = (secret: string) => {
 
             next();
         } catch (err: any) {
-            console.log(err)
+            console.log(err + "verify")
         }
     };
 };
