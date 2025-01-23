@@ -34,8 +34,6 @@ export class BaseRepository<T extends Document> implements IBaseRepository<T> {
      */
     async findOne(query: FilterQuery<T>): Promise<T | null> {
         try {
-            console.log(query);
-            
             return await this.model.findOne(query);
         } catch (err: any) {
             return null;
