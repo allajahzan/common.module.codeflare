@@ -17,9 +17,11 @@ export * from "./middleware/error.handler";
 // Export Utilities
 export * from "./utils/jwt";
 export * from './utils/bycrypt'
+export * from './utils/redis'
 
-// Export mongodb connection class
+// Export configs
 export * from './config/mongodb.connection'
+export * from './config/redis-connection'
 
 // Export repositories
 export * from './repository/IBaseRepository'
