@@ -21,7 +21,8 @@ export * from './utils/redis'
 
 // Export configs
 export * from './config/mongodb.connection'
-export * from './config/redis-connection'
+export * from './config/redis.connection'
+export * from './config/rabbitmq.connection'
 
 // Export repositories
 export * from './repository/IBaseRepository'
