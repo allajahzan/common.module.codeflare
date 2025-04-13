@@ -30,3 +30,4 @@ export * from './repository/baseRepository'
 
 // Export enums
 export * from './enums/exchanges'
+export * from './enums/queues'
