@@ -27,3 +27,6 @@ export * from './config/rabbitmq.connection'
 // Export repositories
 export * from './repository/IBaseRepository'
 export * from './repository/baseRepository'
+
+// Export enums
+export * from './enums/exchanges'
