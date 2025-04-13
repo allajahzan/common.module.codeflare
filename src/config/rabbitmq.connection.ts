@@ -11,6 +11,8 @@ export const RabbitMQConnection = async (url: string): Promise<amqp.Channel> => 
             connection = await amqp.connect(url);
             console.log("successfully connected to rabbitmq");
         } catch (err) {
+            console.log(err);
+            
             console.log(
                 `Failed to connect to rabbitmq retry in 5s => ${ATTEMPT}th attempt`
             );
