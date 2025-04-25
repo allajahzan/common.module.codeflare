@@ -28,9 +28,12 @@ export * from './config/rabbitmq.connection'
 export * from './repository/IBaseRepository'
 export * from './repository/baseRepository'
 
-// Export enums
+// Export event enums
 export * from './events/enums/exchanges'
 export * from './events/enums/queues'
 
-// Export interfaces
-export * from './events/interfaces/IWarning'
+// Export event interfaces
+export * from './events/types/IWarning'
+
+// Export common types
+export * from './types/IUser'
