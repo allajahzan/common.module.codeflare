@@ -31,3 +31,6 @@ export * from './repository/baseRepository'
 // Export enums
 export * from './events/enums/exchanges'
 export * from './events/enums/queues'
+
+// Export interfaces
+export * from './events/interfaces/IWarning'
