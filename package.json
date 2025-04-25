@@ -1,6 +1,6 @@
 {
   "name": "@codeflare/common",
-  "version": "1.0.43",
+  "version": "1.0.44",
   "description": "common module for codeflare web app",
   "main": "dist/index.js",
   "scripts": {
