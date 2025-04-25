@@ -29,5 +29,5 @@ export * from './repository/IBaseRepository'
 export * from './repository/baseRepository'
 
 // Export enums
-export * from './enums/exchanges'
-export * from './enums/queues'
+export * from './events/enums/exchanges'
+export * from './events/enums/queues'
