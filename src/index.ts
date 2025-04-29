@@ -33,7 +33,7 @@ export * from './events/enums/exchanges'
 export * from './events/enums/queues'
 
 // Export event interfaces
-export * from './events/types/IWarning'
+export * from './events/types/IWarningProduced'
 
 // Export common types
 export * from './types/IUser'

@@ -1,7 +1,7 @@
 import { IUser } from "../../types/IUser";
 
-// Interface for Warning event
-export interface IWarning {
+// Interface for Warning Produced
+export interface IWarningProduced{
     senderId: string;
     sender: IUser;
     receiverId: string;
