@@ -6,4 +6,5 @@ export interface IWarning {
     sender: IUser;
     receiverId: string;
     message: string;
+    date: Date;
 }
