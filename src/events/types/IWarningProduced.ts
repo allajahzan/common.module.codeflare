@@ -6,5 +6,5 @@ export interface IWarningProduced{
     sender: IUser;
     receiverId: string;
     message: string;
-    date: Date;
+    date: string;
 }
