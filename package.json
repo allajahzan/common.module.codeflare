@@ -8,9 +8,6 @@
   },
   "author": "allaj",
   "license": "ISC",
-  "files": [
-    "src/proto/*.proto"
-  ],
   "dependencies": {
     "amqplib": "^0.10.7",
     "bcryptjs": "^2.4.3",
