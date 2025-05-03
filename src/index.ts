@@ -35,3 +35,4 @@ export * from "./events/enums/queues";
 // Export common types
 export * from "./types/IUser";
 export * from "./types/IStudent";
+export * from "./types/IBatch";

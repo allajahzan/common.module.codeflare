@@ -1,4 +1,4 @@
-/** Interface for user */
+/** Interface for User */
 export interface IUser {
     _id: string;
     name: string;

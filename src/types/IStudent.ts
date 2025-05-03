@@ -1,4 +1,4 @@
-// Interface for Student
+/** Interface for Student */
 export interface IStudent {
     _id: string,
     name: string,
