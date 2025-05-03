@@ -3,37 +3,35 @@ export * from "./errors/error.conflict";
 export * from "./errors/error.forbidden";
 export * from "./errors/error.notfound";
 export * from "./errors/error.unauthorized";
-export * from './errors/error.expired'
-export * from './errors/error.badrequest'
+export * from "./errors/error.expired";
+export * from "./errors/error.badrequest";
 
 // Export functions
 export * from "./functions/response.send";
-export * from './functions/env.checker'
-export * from './functions/nodeMailer'
+export * from "./functions/env.checker";
+export * from "./functions/nodeMailer";
 
 // Export middleware
 export * from "./middleware/error.handler";
 
 // Export Utilities
 export * from "./utils/jwt";
-export * from './utils/bycrypt'
-export * from './utils/redis'
+export * from "./utils/bycrypt";
+export * from "./utils/redis";
 
 // Export configs
-export * from './config/mongodb.connection'
-export * from './config/redis.connection'
-export * from './config/rabbitmq.connection'
+export * from "./config/mongodb.connection";
+export * from "./config/redis.connection";
+export * from "./config/rabbitmq.connection";
 
 // Export repositories
-export * from './repository/IBaseRepository'
-export * from './repository/baseRepository'
+export * from "./repository/IBaseRepository";
+export * from "./repository/baseRepository";
 
 // Export event enums
-export * from './events/enums/exchanges'
-export * from './events/enums/queues'
-
-// Export event interfaces
-export * from './events/types/IWarningProduced'
+export * from "./events/enums/exchanges";
+export * from "./events/enums/queues";
 
 // Export common types
-export * from './types/IUser'
+export * from "./types/IUser";
+export * from "./types/IStudent";
