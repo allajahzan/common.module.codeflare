@@ -3,11 +3,12 @@ export interface IUser {
     _id: string;
     name: string;
     email: string;
-    phoneNo: string;
+    phoneNo?: string;
     role: string;
     profilePic: string;
     domain?: string;
     batches: string[];
-    isBlock: boolean;
+    lastActive?: Date;
     createdAt: Date;
+    isBlock: boolean;
 }

@@ -5,13 +5,14 @@ export interface IStudent {
     _id: string;
     name: string;
     email: string;
-    phoneNo: string;
+    phoneNo?: string;
     role: string;
     profilePic: string;
     week?: string;
     domain?: string;
     batch: string;
     category: IStudentCategory;
-    isBlock?: boolean;
+    lastActive?: Date;
     createdAt: Date;
+    isBlock: boolean;
 }
