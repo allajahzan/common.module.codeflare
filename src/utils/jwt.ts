@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { ForbiddenError } from "../errors/error.forbidden";
-import { UnauthorizedError } from "../errors/error.unauthorized";
+import { ForbiddenError } from "../error/forbidden";
+import { UnauthorizedError } from "../error/unauthorized";
 import { IRole } from "../types/IRole";
 
 /** Interface for the JWT payload. */

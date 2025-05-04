@@ -1,4 +1,4 @@
-import { CustomError } from "./error.custom";
+import { CustomError } from "./custom";
 
 export class ConflictError extends CustomError {
     statusCode = 409;

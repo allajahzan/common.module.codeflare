@@ -12,8 +12,8 @@ redisClient.on("reconnecting", () => console.log("Redis reconnecting..."));
 redisClient.on("end", () => console.log("Redis connection closed"));
 redisClient.on("error", (err) => console.log("Redis Client Error", err));
 
-// Redid connection
-const connectRedis = async () => {
+// Redis connection
+const redisConnection = async () => {
   try {
     await redisClient.connect();
   } catch (err: unknown) {
@@ -21,4 +21,4 @@ const connectRedis = async () => {
   }
 };
 
-export { redisClient, connectRedis };
+export { redisClient, redisConnection };

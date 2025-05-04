@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { CustomError } from "../errors/error.custom";
+import { CustomError } from "../error/custom";
 
 /**
  * Express middleware for centralized error handling.

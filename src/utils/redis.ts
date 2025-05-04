@@ -1,4 +1,4 @@
-import { redisClient } from "../config/redis.connection";
+import { redisClient } from "../config/redis";
 
 // Redis class
 export class Redis {

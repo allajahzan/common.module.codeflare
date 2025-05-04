@@ -1,10 +1,10 @@
-import { CustomError } from "./error.custom";
+import { CustomError } from "./custom";
 
-export class UnauthorizedError extends CustomError {
-    statusCode = 401;
+export class NotFoundError extends CustomError {
+    statusCode = 404;
 
     /**
-     * Constructs a new UnauthorizedError instance.
+     * Constructs a new NotFoundError instance.
      * @param message - The error message to be associated with this error.
      */
     constructor(message: string) {
