@@ -20,7 +20,7 @@ export const errorHandler = (
         res.status(error.statusCode).json({ errors: error.serializeError() });
     } else {
         res.status(500).json({
-            message: error.message || "Something went wrong",
+            message: error.message || "Something went wrong!",
         });
     }
 };

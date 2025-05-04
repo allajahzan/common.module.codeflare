@@ -5,7 +5,6 @@ package user;
 service UserService {
   rpc getUser (getUserRequest) returns (getUserResponse);
   rpc getUsers (getUsersRequest) returns (getUsersResponse);
-  rpc getUsersByRole(getUsersByRoleRequest) returns (getUsersByRoleResponse);
   rpc updateUser (updateUserRequest) returns (updateUserResponse);
   rpc getStudentsIds (getStudentsIdsRequest) returns (getStudentsIdsResponse);
 }
@@ -59,6 +58,7 @@ message getUserResponse {
 
 message getUsersRequest { // Users -----------------------------------------
   repeated string userIds = 1;
+  string role = 2;
 }
 
 message getUsersResponse {
@@ -78,12 +78,4 @@ message getStudentsIdsRequest {} // Students -------------------------------
 
 message getStudentsIdsResponse {
   StudentIdsResponse response = 1;
-}
-
-message getUsersByRoleRequest {  // Users by role --------------------------
-  string role = 1;
-}
-
-message getUsersByRoleResponse {
-  BunchOfUsersResponse response = 1;
 }
