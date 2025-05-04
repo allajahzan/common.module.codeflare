@@ -5,6 +5,7 @@ export interface IUser {
     email: string;
     role: string;
     profilePic: string;
-    domainId?: string;
-    isBlock?: boolean;
+    domain?: string;
+    batches: string[];
+    isBlock: boolean;
 }
