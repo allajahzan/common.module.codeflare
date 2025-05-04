@@ -1,1 +1,1 @@
-export type USER_ROLE = "admin" | "coordinator" | "instructor" | "student";
+export type IRole = "admin" | "coordinator" | "instructor" | "student";

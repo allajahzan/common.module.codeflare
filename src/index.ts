@@ -36,3 +36,4 @@ export * from "./events/enums/queues";
 export * from "./types/IUser";
 export * from "./types/IStudent";
 export * from "./types/IBatch";
+export * from './types/IRole'
