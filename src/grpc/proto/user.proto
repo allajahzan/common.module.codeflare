@@ -1,87 +1,80 @@
-syntax = 'proto3';
+syntax = "proto3";
 
 package user;
 
 service UserService {
-   rpc getUser (getUserRequest) returns (getUserResponse);
-   rpc getUsers (getUsersRequest) returns (getUsersResponse);
-   rpc updateUser (updateUserRequest) returns (updateUserResponse);
-   rpc getStudentsIds (getStudentsIdsRequest) returns (getStudentsIdsResponse);
+  rpc getUser (getUserRequest) returns (getUserResponse);
+  rpc getUsers (getUsersRequest) returns (getUsersResponse);
+  rpc updateUser (updateUserRequest) returns (updateUserResponse);
+  rpc getStudentsIds (getStudentsIdsRequest) returns (getStudentsIdsResponse);
 }
 
-message UserInfo { // User structure
+// Structures
+
+message UserInfo {
   string _id = 1;
   string name = 2;
   string email = 3;
-  string role = 4;
+  string phoneNo = 4;
   string profilePic = 5;
-  string batch = 6;
+  string role = 6;
+  string week = 7;
+  string domain = 8;
+  string batch = 9;
+  repeated string batches = 10;
+  string category = 11;
+  string lastActive = 12;
+  string createdAt = 13;
+  bool isBlock = 14;
 }
 
-message StudentInfo { // Student structure
-    string _id = 1;
-    string name = 2;
-    string email = 3;
-    string role = 4;
-    string profilePic = 5;
-    string batch = 6;
+message SingleUserResponse { // Single user response structure -------------
+  int32 status = 1;
+  string message = 2;
+  UserInfo user = 3;
+}
+ 
+message BunchOfUsersResponse { // Bunch of users response structure --------
+  int32 status = 1;
+  string message = 2;
+  map<string, UserInfo> users = 3;
 }
 
-message Response {  // Single User Response structure
-    int32 status = 1;
-    string message = 2;
-    UserInfo user = 3;
+message StudentIdsResponse { // Bunch of studentIds response structure -----
+  int32 status = 1;
+  string message = 2;
+  repeated UserInfo students = 3;
 }
 
-message BResponse { // Bunch of users Response structure 
-    int32 status = 1;
-    string message = 2;
-    map<string, UserInfo> users = 3;
-}
+// Messages
 
-message SResponse { // Students Response structure 
-    int32 status = 1;
-    string message = 2;
-    repeated StudentInfo students = 3; 
-}
-
-// ===============================================================
-
-// For a single UserInfo =========================================
-
-message getUserRequest {
-    string _id = 1;
+message getUserRequest { // User -------------------------------------------
+  string _id = 1;
 }
 
 message getUserResponse {
-    Response response = 1;
+  SingleUserResponse response = 1;
 }
 
-// For a bunch of UsersInfo =======================================
-
-message getUsersRequest {
-    repeated string userIds = 1;
+message getUsersRequest { // Users -----------------------------------------
+  repeated string userIds = 1;
 }
 
 message getUsersResponse {
-    BResponse response = 1;
+  BunchOfUsersResponse response = 1;
 }
-
-// For update a single user =======================================
  
-message updateUserRequest {
-    string _id = 1;
-    string data = 2;
+message updateUserRequest { // Update --------------------------------------
+  string _id = 1;
+  string data = 2;
 }
 
 message updateUserResponse {
-    Response response = 1; 
+  SingleUserResponse response = 1;
 }
 
-// For to get students ids of perticaular batches =================
-
-message getStudentsIdsRequest {}
+message getStudentsIdsRequest {} // Students -------------------------------
 
 message getStudentsIdsResponse {
-    SResponse response = 1;
+  StudentIdsResponse response = 1;
 }

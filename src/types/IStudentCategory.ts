@@ -1,1 +1,1 @@
-export type IStudentCategory =  "Foundation" | "Ongoing" | "Held" | "Critical" | "terminated" | "Placement";
+export type IStudentCategory =  "Foundation" | "Ongoing" | "Held" | "Critical" | "Terminated" | "Placement";
