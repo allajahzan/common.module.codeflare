@@ -37,3 +37,4 @@ export * from "./types/IUser";
 export * from "./types/IStudent";
 export * from "./types/IBatch";
 export * from './types/IRole'
+export * from './types/IStudentCategory'

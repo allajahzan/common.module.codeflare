@@ -1,0 +1,1 @@
+export type IStudentCategory =  "Foundation" | "Ongoing" | "Held" | "Critical" | "terminated" | "Placement";
