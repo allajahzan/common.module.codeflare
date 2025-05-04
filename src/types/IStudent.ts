@@ -5,6 +5,7 @@ export interface IStudent {
     _id: string;
     name: string;
     email: string;
+    phoneNo: string;
     role: string;
     profilePic: string;
     week?: string;
