@@ -12,4 +12,5 @@ export interface IStudent {
     batch: string;
     category: IStudentCategory;
     isBlock?: boolean;
+    createdAt: Date;
 }

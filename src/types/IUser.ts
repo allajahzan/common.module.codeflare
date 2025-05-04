@@ -8,4 +8,5 @@ export interface IUser {
     domain?: string;
     batches: string[];
     isBlock: boolean;
+    createdAt: Date;
 }
