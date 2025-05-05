@@ -4,10 +4,10 @@ export interface IUser {
     name: string;
     email: string;
     phoneNo?: string;
-    role: string;
+    role: "admin" | "coordinator" | "instructor";
     profilePic: string;
     domain?: string;
-    batches: string[];
+    batches?: string[];
     lastActive?: Date;
     createdAt: Date;
     isBlock: boolean;
