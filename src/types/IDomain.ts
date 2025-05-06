@@ -2,7 +2,7 @@ import { IWeek } from "./IWeek";
 
 /** Inteface for domainsweek */
 export interface IDomainsWeek {
-    week: string;
+    week: IWeek;
     title: string;
 }
 
