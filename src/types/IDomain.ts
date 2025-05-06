@@ -10,5 +10,6 @@ export interface IDomainsWeek {
 export interface IDomain {
     _id: string;
     name: string;
+    imageUrl: string;
     domainsWeeks: IDomainsWeek[]
 }
