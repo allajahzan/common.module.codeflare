@@ -45,6 +45,7 @@ export * from './types/IStudentCategory'
 export * from './types/IWeek'
 export * from './types/IDomain'
 export * from './types/IUserBasic'
+export * from './types/IReviewCategory'
 
 // Export gRPC protos
 export * from "./grpc/service/userService";

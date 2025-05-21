@@ -1,2 +1,2 @@
-/** Type for student category */
-export type IStudentCategory =  "Foundation" | "Weekly" | "QA" | "InTake";
+/** Type for review category */
+export type IReveiewCategory =  "Foundation" | "Weekly" | "QA" | "InTake";
