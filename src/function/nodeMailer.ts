@@ -18,7 +18,7 @@ export const sendEmail = (email: string, subject: string, html:string, callback:
 
     transporter.sendMail(mailOptions, function (error: any, info: any) {
         if (error) {
-            console.error(error);
+            console.log(error);
             callback(error);
         } else {
             console.log("Email has been sent to user's email");
