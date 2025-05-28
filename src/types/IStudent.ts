@@ -1,3 +1,4 @@
+import { IReviewCategory } from "./IReviewCategory";
 import { IStudentCategory } from "./IStudentCategory";
 
 /** Interface for Student */
@@ -12,6 +13,7 @@ export interface IStudent {
     domain?: string;
     batch: string;
     category: IStudentCategory;
+    review: IReviewCategory;
     lastActive?: Date;
     createdAt: Date;
     isBlock: boolean;
