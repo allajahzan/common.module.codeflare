@@ -10,6 +10,7 @@ export interface IDomainsWeek {
 export interface IDomain {
     _id: string;
     name: string;
-    domainsWeeks: IDomainsWeek[]
+    domainsWeeks: IDomainsWeek[];
+    lastWeek: IWeek;
     isListed: boolean;
 }
